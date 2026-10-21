@@ -1,0 +1,198 @@
+.pokemon-card {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* O hover é detectado no <li> (que fica parado) e só o card se move.
+   Se o próprio card detectasse o hover, ao subir ele sairia de baixo do
+   cursor, desceria, voltaria a ser "hovered"... e ficaria tremendo. */
+.pokemon-list > li:hover .pokemon-card {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.pokemon-card.is-comparing {
+  box-shadow: 0 0 0 3px #ffcb05, var(--shadow-hover);
+}
+
+.pokemon-card__main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+/* Área da imagem: gradiente com as cores dos tipos do Pokémon */
+.pokemon-card__art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 150px;
+  background:
+    radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.45) 0 30%, transparent 31%),
+    linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.pokemon-card__number {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.pokemon-card__img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.pokemon-card__img.is-fallback {
+  width: 70px;
+  height: 70px;
+  opacity: 0.8;
+}
+
+.pokemon-list > li:hover .pokemon-card__img {
+  transform: scale(1.08);
+}
+
+.pokemon-card__body {
+  display: grid;
+  gap: 10px;
+  padding: 14px 14px 16px;
+}
+
+.pokemon-card__name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.pokemon-card__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pokemon-card__types .type-badge {
+  padding: 2px 9px;
+  font-size: 0.68rem;
+}
+
+.pokemon-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 0;
+}
+
+.pokemon-card__stat {
+  padding: 5px 4px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  text-align: center;
+}
+
+.pokemon-card__stat dt {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.pokemon-card__stat dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.pokemon-card__total {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.pokemon-card__total strong {
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+/* Botões de favoritar/comparar no canto da imagem */
+.pokemon-card__actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pokemon-card__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  color: #555;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.pokemon-card__icon:hover {
+  transform: scale(1.12);
+  background: #fff;
+}
+
+.pokemon-card__icon.is-on {
+  background: #ffcb05;
+  color: #1d1d1f;
+}
+
+@media (max-width: 520px) {
+  .pokemon-card__art {
+    height: 120px;
+  }
+
+  .pokemon-card__img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokemon-card__body {
+    padding: 10px 10px 12px;
+    gap: 8px;
+  }
+
+  .pokemon-card__name {
+    font-size: 1rem;
+  }
+
+  .pokemon-card__stat dt {
+    font-size: 0.55rem;
+  }
+
+  .pokemon-card__stat dd {
+    font-size: 0.82rem;
+  }
+}

@@ -1,0 +1,151 @@
+/* Cabeçalho inspirado no aparelho da Pokédex: carcaça vermelha, lente azul e LEDs */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, var(--dex-red) 0%, var(--dex-red-dark) 100%);
+  color: #fff;
+  box-shadow: 0 4px 0 #1d1d1f, 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header__lens {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background: radial-gradient(circle at 35% 30%, #bfe8ff 0 14%, var(--lens) 38%, #0d5f8a 100%);
+  box-shadow: 0 0 0 3px #1d1d1f, inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+  animation: lens-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes lens-glow {
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+.header__leds {
+  display: flex;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.header__leds i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #1d1d1f;
+}
+
+.header__leds i:nth-child(1) {
+  background: #ff5b5b;
+}
+.header__leds i:nth-child(2) {
+  background: #ffd84a;
+}
+.header__leds i:nth-child(3) {
+  background: #59d36a;
+}
+
+.header__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header__nav {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+}
+
+.header__tab {
+  padding: 8px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header__tab:hover {
+  color: #fff;
+}
+
+.header__tab.is-active {
+  background: #fff;
+  color: var(--dex-red-dark);
+}
+
+.header__theme {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  color: #fff;
+  font-size: 1.15rem;
+  transition: transform 0.3s ease, background 0.2s ease;
+}
+
+.header__theme:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transform: rotate(-20deg);
+}
+
+@media (max-width: 640px) {
+  .header__inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .header__lens {
+    width: 38px;
+    height: 38px;
+  }
+
+  .header__leds {
+    display: none;
+  }
+
+  .header__title {
+    font-size: 1.35rem;
+  }
+
+  .header__theme {
+    margin-left: auto;
+  }
+
+  .header__nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .header__tab {
+    flex: 1;
+  }
+}

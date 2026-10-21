@@ -1,0 +1,121 @@
+.filters {
+  display: grid;
+  gap: 14px;
+}
+
+.filters__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filters__all {
+  padding: 5px 14px;
+  border: 2px solid var(--text);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filters__all.is-active {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.filters__sort select,
+.filters__btn {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.filters__sort select {
+  color: var(--text);
+}
+
+.filters__btn {
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filters__btn:hover {
+  border-color: var(--text-muted);
+}
+
+.filters__btn.is-active {
+  background: #ffcb05;
+  border-color: #c79b00;
+  color: #1d1d1f;
+}
+
+.filters__count {
+  display: inline-block;
+  min-width: 1.6em;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.filters__btn--accent {
+  margin-left: auto;
+  background: var(--dex-red);
+  border-color: var(--dex-red);
+  color: #fff;
+}
+
+.filters__btn--accent:hover {
+  background: var(--dex-red-dark);
+  border-color: var(--dex-red-dark);
+}
+
+@media (max-width: 600px) {
+  .filters__types {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .filters__sort {
+    width: 100%;
+  }
+
+  .filters__sort select {
+    flex: 1;
+  }
+
+  .filters__btn {
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .filters__btn--accent {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,114 @@
+/* Variáveis globais de cor, fonte e espaçamento (tema claro como padrão) */
+:root {
+  --dex-red: #dc0a2d;
+  --dex-red-dark: #a3071f;
+  --lens: #30a7d7;
+
+  --bg: #f3f1ec;
+  --bg-pattern: rgba(0, 0, 0, 0.035);
+  --surface: #ffffff;
+  --surface-2: #f6f5f2;
+  --text: #1d1d1f;
+  --text-muted: #6b6a68;
+  --border: #e3e0d9;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.08), 0 16px 36px rgba(0, 0, 0, 0.12);
+  --focus: #2563eb;
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #121316;
+  --bg-pattern: rgba(255, 255, 255, 0.03);
+  --surface: #1c1d22;
+  --surface-2: #24262c;
+  --text: #f1f0ed;
+  --text-muted: #a2a19d;
+  --border: #2f3138;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.5), 0 16px 36px rgba(0, 0, 0, 0.5);
+  --focus: #7aa7ff;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--bg-pattern) 1px, transparent 1px);
+  background-size: 18px 18px;
+  line-height: 1.5;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
