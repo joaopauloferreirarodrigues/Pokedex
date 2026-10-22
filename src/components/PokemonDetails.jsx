@@ -10,8 +10,6 @@ function PokemonDetails({ pokemon, isFavorite, onToggleFavorite, onClose }) {
   const { status, info } = usePokeApiInfo(pokemon.id)
   const [primaryType, secondaryType] = pokemon.types.map((t) => t.name)
   const accent = typeColor(primaryType)
-
-  // Relação treinador ↔ Pokémon vinda do JSON
   const owners = allTrainers.filter((trainer) => trainer.pokemonIds.includes(pokemon.id))
 
   return (

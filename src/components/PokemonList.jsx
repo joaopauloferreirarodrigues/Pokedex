@@ -11,7 +11,6 @@ function PokemonList({
   onToggleCompare,
   onClearFilters,
 }) {
-  // Tratamento para quando nenhum Pokémon corresponde à pesquisa/filtros
   if (pokemon.length === 0) {
     return (
       <EmptyState

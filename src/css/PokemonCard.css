@@ -9,9 +9,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* O hover é detectado no <li> (que fica parado) e só o card se move.
-   Se o próprio card detectasse o hover, ao subir ele sairia de baixo do
-   cursor, desceria, voltaria a ser "hovered"... e ficaria tremendo. */
+
 .pokemon-list > li:hover .pokemon-card {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
@@ -32,7 +30,7 @@
   text-align: left;
 }
 
-/* Área da imagem: gradiente com as cores dos tipos do Pokémon */
+
 .pokemon-card__art {
   position: relative;
   display: grid;
@@ -135,7 +133,7 @@
   color: var(--text);
 }
 
-/* Botões de favoritar/comparar no canto da imagem */
+
 .pokemon-card__actions {
   position: absolute;
   top: 8px;

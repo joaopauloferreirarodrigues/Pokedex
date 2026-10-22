@@ -1,7 +1,5 @@
 import PokemonImage from './PokemonImage.jsx'
 import '../css/Compare.css'
-
-// Barra fixa no rodapé mostrando os Pokémon escolhidos para comparar
 function CompareBar({ pokemon, onRemove, onCompare, onClear }) {
   const ready = pokemon.length === 2
 

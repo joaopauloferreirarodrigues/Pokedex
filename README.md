@@ -4,14 +4,10 @@ Atividade 03 da disciplina **Desenvolvimento e Integração de Aplicações Web*
 
 Pokédex interativa com os 151 Pokémon da 1ª geração: pesquisa por nome ou número, filtro por tipo, ordenação por atributo, detalhes em modal com barras de atributos, comparação entre dois Pokémon, favoritos, Pokémon aleatório, área de treinadores e tema claro/escuro.
 
-## 👥 Dupla
-
 - Nome do integrante 1 — [João Paulo Ferreira Rodrigues](https://github.com/joaopauloferreirarodrigues)
 - Nome do integrante 2 — [Fernando Rodrigues](https://github.com/fernandortec)
 
 Desenvolvido em **Pair Programming**.
-
-## ✅ Funcionalidades
 
 **Requisitos obrigatórios**
 
@@ -32,15 +28,10 @@ Desenvolvido em **Pair Programming**.
 - 🌙 **Tema escuro** (respeita a preferência do sistema na primeira visita e fica salvo).
 - 🌐 **API externa**: o modal de detalhes busca altura, peso, categoria e descrição na PokéAPI.
 
-## ▶️ Como executar
-
 Pré-requisito: [Node.js](https://nodejs.org/) 20.19+ ou 22.12+ (exigência do Vite 8).
 
 ```bash
-# 1. Instalar as dependências
 npm install
-
-# 2. Rodar em modo de desenvolvimento
 npm run dev
 ```
 
@@ -49,12 +40,10 @@ Depois, abra no navegador o endereço mostrado no terminal (por padrão **http:/
 Outros comandos:
 
 ```bash
-npm run build     # gera a versão de produção na pasta dist/
-npm run preview   # serve a versão de produção localmente (http://localhost:4173)
-npm run lint      # verifica o código com o oxlint
+npm run build
+npm run preview
+npm run lint
 ```
-
-## 📁 Dados utilizados
 
 Os dados da aplicação estão em **`src/data/pokedex-data.json`** (arquivo fornecido na atividade). Ele contém:
 
@@ -64,8 +53,6 @@ Os dados da aplicação estão em **`src/data/pokedex-data.json`** (arquivo forn
 
 O JSON é importado diretamente pelo Vite em `src/utils/pokemon.js`. Não há banco de dados.
 
-## 🌐 Fontes externas
-
 - **Imagens dos Pokémon:** arte oficial do repositório público de sprites da PokéAPI —
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{id}.png`.
   Se a imagem não carregar, o componente `PokemonImage` mostra uma Pokébola local (`src/assets/images/pokeball.svg`).
@@ -74,45 +61,41 @@ O JSON é importado diretamente pelo Vite em `src/utils/pokemon.js`. Não há ba
 
 > A aplicação continua funcionando sem internet com os dados do `pokedex-data.json`: a lista, a pesquisa, os filtros, os detalhes, os treinadores e a comparação usam só o arquivo local. Sem conexão, as imagens viram Pokébolas e o modal avisa que a PokéAPI não respondeu.
 
-## 🧩 Organização do projeto
-
 ```
 pokedex-react/
 ├── public/
 │   └── favicon.svg
 ├── src/
-│   ├── assets/images/pokeball.svg   # imagem reserva (fallback)
+│   ├── assets/images/pokeball.svg
 │   ├── components/
-│   │   ├── Header.jsx               # topo, navegação Pokédex/Treinadores e botão de tema
-│   │   ├── SearchBar.jsx            # campo de pesquisa por nome ou número
-│   │   ├── Filters.jsx              # filtro por tipo, ordenação, favoritos e aleatório
-│   │   ├── TypeBadge.jsx            # etiqueta colorida de tipo (reutilizada em vários lugares)
-│   │   ├── PokemonList.jsx          # grade de cards (renderização com map)
-│   │   ├── PokemonCard.jsx          # card de um Pokémon
-│   │   ├── PokemonImage.jsx         # imagem com fallback local
-│   │   ├── PokemonDetails.jsx       # modal de detalhes
-│   │   ├── StatBar.jsx              # barra de progresso de um atributo
-│   │   ├── Modal.jsx                # janela modal reutilizável (ESC / clique fora fecha)
-│   │   ├── CompareBar.jsx           # barra fixa com os Pokémon escolhidos para comparar
-│   │   ├── CompareModal.jsx         # comparação lado a lado
-│   │   ├── TrainerList.jsx          # área de treinadores (busca e ordenação)
-│   │   ├── TrainerCard.jsx          # card de um treinador
-│   │   └── EmptyState.jsx           # mensagem de "nada encontrado"
-│   ├── css/                         # um arquivo de estilo por componente
-│   ├── data/pokedex-data.json       # dados da atividade
+│   │   ├── Header.jsx
+│   │   ├── SearchBar.jsx
+│   │   ├── Filters.jsx
+│   │   ├── TypeBadge.jsx
+│   │   ├── PokemonList.jsx
+│   │   ├── PokemonCard.jsx
+│   │   ├── PokemonImage.jsx
+│   │   ├── PokemonDetails.jsx
+│   │   ├── StatBar.jsx
+│   │   ├── Modal.jsx
+│   │   ├── CompareBar.jsx
+│   │   ├── CompareModal.jsx
+│   │   ├── TrainerList.jsx
+│   │   ├── TrainerCard.jsx
+│   │   └── EmptyState.jsx
+│   ├── css/
+│   ├── data/pokedex-data.json
 │   ├── hooks/
-│   │   ├── useLocalStorage.js       # useState que persiste no navegador (favoritos e tema)
-│   │   └── usePokeApiInfo.js        # busca na PokéAPI com useEffect + AbortController
-│   ├── utils/pokemon.js             # leitura do JSON, cores dos tipos, pesquisa e ordenação
-│   ├── App.jsx                      # estado principal da aplicação
-│   ├── main.jsx                     # ponto de entrada do React
-│   └── index.css                    # variáveis de tema e estilos globais
+│   │   ├── useLocalStorage.js
+│   │   └── usePokeApiInfo.js
+│   ├── utils/pokemon.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 ├── index.html
 ├── package.json
 └── vite.config.js
 ```
-
-## ⚛️ Conceitos de React aplicados
 
 | Conceito | Onde |
 | --- | --- |
@@ -127,11 +110,7 @@ pokedex-react/
 | Hooks personalizados | `useLocalStorage` e `usePokeApiInfo` |
 | Reutilização de componentes | `TypeBadge`, `StatBar`, `Modal`, `PokemonImage`, `EmptyState` |
 
-## 📦 Dependências
-
 Somente as do template oficial do Vite (`react`, `react-dom`, `vite`, `@vitejs/plugin-react` e `oxlint`), todas registradas no `package.json`. Nenhuma biblioteca extra foi necessária: ícones, barras, animações e tema foram feitos com CSS puro.
 
-## 🖼️ Capturas de tela
 
-<!-- Adicione aqui os prints da aplicação, por exemplo: -->
-<!-- ![Tela principal](docs/tela-principal.png) -->
+

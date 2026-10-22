@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react'
-
-// Hook personalizado: funciona como useState, mas salva o valor no localStorage
-// para que favoritos e tema continuem iguais ao recarregar a página.
 export function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {
@@ -16,7 +13,6 @@ export function useLocalStorage(key, initialValue) {
     try {
       window.localStorage.setItem(key, JSON.stringify(value))
     } catch {
-      // Navegação privada ou armazenamento bloqueado: segue só em memória
     }
   }, [key, value])
 
