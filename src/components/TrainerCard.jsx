@@ -1,9 +1,7 @@
 import PokemonImage from './PokemonImage.jsx'
 import { formatId, getPokemonById } from '../utils/pokemon.js'
 
-const BADGE_SLOTS = 8 // as 8 insígnias de Kanto (alguns treinadores têm 9 nos dados)
-
-// Agrupa IDs repetidos (ex.: Koga tem três Venonat) em { pokemon, count }
+const BADGE_SLOTS = 8
 function groupTeam(pokemonIds) {
   const counts = new Map()
   pokemonIds.forEach((id) => counts.set(id, (counts.get(id) ?? 0) + 1))

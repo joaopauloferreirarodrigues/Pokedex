@@ -36,7 +36,7 @@
   background: var(--surface);
 }
 
-/* Esconde o "x" nativo do input search para usar o nosso */
+
 .search__input::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }

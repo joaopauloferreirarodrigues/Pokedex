@@ -1,4 +1,4 @@
-/* ---------- Barra fixa de comparação ---------- */
+
 .compare-bar {
   position: fixed;
   left: 50%;
@@ -97,7 +97,7 @@
   cursor: not-allowed;
 }
 
-/* ---------- Modal de comparação ---------- */
+
 .compare {
   padding: 26px;
 }

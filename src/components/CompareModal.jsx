@@ -9,8 +9,6 @@ function CompareModal({ pokemon, onClose }) {
   const [a, b] = pokemon
   const totalA = totalStats(a)
   const totalB = totalStats(b)
-
-  // Conta em quantos atributos cada um vence
   const winsA = STATS.filter((s) => a.stats[s.key] > b.stats[s.key]).length
   const winsB = STATS.filter((s) => b.stats[s.key] > a.stats[s.key]).length
 

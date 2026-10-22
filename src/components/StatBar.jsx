@@ -1,7 +1,5 @@
 import { MAX_STAT } from '../utils/pokemon.js'
 import '../css/StatBar.css'
-
-// Barra de progresso de um atributo. "highlight" marca o vencedor na comparação.
 function StatBar({ label, value, color, highlight = false }) {
   const percent = Math.min(100, Math.round((value / MAX_STAT) * 100))
 

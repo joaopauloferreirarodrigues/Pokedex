@@ -1,11 +1,7 @@
 import { useEffect, useRef } from 'react'
 import '../css/Modal.css'
-
-// Janela modal reutilizável: fecha com ESC, clique fora ou botão ×,
-// e trava a rolagem da página enquanto está aberta.
 function Modal({ title, onClose, children, wide = false }) {
   const dialogRef = useRef(null)
-  // Guarda sempre a versão mais recente de onClose sem reexecutar o efeito
   const onCloseRef = useRef(onClose)
   useEffect(() => {
     onCloseRef.current = onClose

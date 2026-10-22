@@ -1,15 +1,8 @@
 import data from '../data/pokedex-data.json'
-
-// Dados vindos do arquivo fornecido na atividade (fonte principal da aplicação)
 export const allPokemon = data.pokemon
 export const allTrainers = data.trainers
-
-// Tipos usados no filtro: só os que aparecem em algum Pokémon do JSON
-// (o JSON tem "Typeless" e "Dark", que nenhum dos 151 usa)
 const usedTypeIds = new Set(allPokemon.flatMap((p) => p.types.map((t) => t.id)))
 export const filterTypes = data.types.filter((t) => usedTypeIds.has(t.id))
-
-// Busca rápida de Pokémon por ID (usada pelos treinadores)
 const pokemonById = new Map(allPokemon.map((p) => [p.id, p]))
 export const getPokemonById = (id) => pokemonById.get(id)
 
@@ -21,16 +14,12 @@ export const STATS = [
   { key: 'specialDefense', label: 'Defesa Especial', short: 'SP.DEF' },
   { key: 'speed', label: 'Velocidade', short: 'VEL' },
 ]
-
-// Maior valor possível de um atributo base na 1ª geração (Chansey tem 250 de HP)
 export const MAX_STAT = 255
 
 export const totalStats = (pokemon) =>
   Object.values(pokemon.stats).reduce((sum, value) => sum + value, 0)
 
 export const formatId = (id) => `#${String(id).padStart(3, '0')}`
-
-// Cores associadas a cada tipo (padrão visual dos jogos)
 export const TYPE_COLORS = {
   Normal: '#A8A77A',
   Fire: '#EE8130',
@@ -74,12 +63,8 @@ export const TYPE_LABELS_PT = {
 }
 
 export const typeColor = (typeName) => TYPE_COLORS[typeName] ?? '#888'
-
-// Imagem oficial hospedada no repositório público de sprites da PokéAPI
 export const pokemonImageUrl = (id) =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
-
-// Pesquisa por nome (parcial, sem diferenciar maiúsculas) ou por ID ("25", "#025", "025")
 export function matchesSearch(pokemon, rawQuery) {
   const query = rawQuery.trim().toLowerCase()
   if (!query) return true
@@ -110,7 +95,6 @@ export function sortPokemon(list, sortBy, direction) {
     const va = valueOf(a)
     const vb = valueOf(b)
     const result = typeof va === 'string' ? va.localeCompare(vb) : va - vb
-    // Empate: mantém a ordem da Pokédex
     return result * factor || a.id - b.id
   })
 }

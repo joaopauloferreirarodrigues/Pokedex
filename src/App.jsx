@@ -15,32 +15,20 @@ const prefersDark = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches
 
 function App() {
-  // Navegação entre as duas áreas da aplicação
   const [view, setView] = useState('pokedex')
-
-  // Estados de pesquisa, filtro e ordenação
   const [search, setSearch] = useState('')
   const [selectedType, setSelectedType] = useState('all')
   const [sortBy, setSortBy] = useState('id')
   const [sortDirection, setSortDirection] = useState('asc')
   const [onlyFavorites, setOnlyFavorites] = useState(false)
-
-  // Pokémon aberto no modal de detalhes e Pokémon escolhidos para comparação
   const [selectedPokemon, setSelectedPokemon] = useState(null)
   const [compareIds, setCompareIds] = useState([])
   const [isComparing, setIsComparing] = useState(false)
-
-  // Estados persistidos no navegador
   const [favorites, setFavorites] = useLocalStorage('pokedex:favorites', [])
   const [theme, setTheme] = useLocalStorage('pokedex:theme', prefersDark() ? 'dark' : 'light')
-
-  // Aplica o tema no <html> sempre que ele muda
   useEffect(() => {
     document.documentElement.dataset.theme = theme
   }, [theme])
-
-  // Estado derivado: a lista exibida é calculada a partir dos filtros,
-  // sem precisar guardar uma cópia filtrada em outro useState.
   const visiblePokemon = useMemo(() => {
     const filtered = allPokemon.filter(
       (p) =>
@@ -62,7 +50,6 @@ function App() {
   function toggleCompare(id) {
     setCompareIds((current) => {
       if (current.includes(id)) return current.filter((cid) => cid !== id)
-      // No máximo 2: o mais antigo sai quando um terceiro é escolhido
       return [...current, id].slice(-2)
     })
   }
